@@ -44,28 +44,28 @@ type SelfConversationState struct {
 	IsGuest bool `json:"is_guest"`
 }
 
-type ParticipantDataT []struct {
-	ID ParticipantID `json:"id"`
-	FallbackName        string	`json:"fallback_name"`
-	InvitationStatus    string	`json:"invitation_status"`
-	ParticipantType     string	`json:"participant_type"`
-	NewInvitationStatus string	`json:"new_invitation_status"`
+type ParticipantData []struct {
+	ID			ParticipantID	`json:"id"`
+	FallbackName		string		`json:"fallback_name"`
+	InvitationStatus	string		`json:"invitation_status"`
+	ParticipantType		string		`json:"participant_type"`
+	NewInvitationStatus	string		`json:"new_invitation_status"`
 }
 
 type Conversation struct {
-	ID                     ID `json:"id"`
-	Type                   string `json:"type"`
-	SelfConversationState  `json:"self_conversation_state"`
-	ReadState              []SelfReadState `json:"read_state"`
-	HasActiveHangout       bool            `json:"has_active_hangout"`
-	OtrStatus              string          `json:"otr_status"`
-	OtrToggle              string          `json:"otr_toggle"`
-	CurrentParticipant     []ParticipantID `json:"current_participant"`
-	ParticipantData        ParticipantDataT `json:"participant_data"`
-	ForkOnExternalInvite   bool     `json:"fork_on_external_invite"`
-	NetworkType            []string `json:"network_type"`
-	ForceHistoryState      string   `json:"force_history_state"`
-	GroupLinkSharingStatus string   `json:"group_link_sharing_status"`
+	ID                     ID		`json:"id"`
+	Type                   string		`json:"type"`
+	SelfConversationState			`json:"self_conversation_state"`
+	ReadState              []SelfReadState	`json:"read_state"`
+	HasActiveHangout       bool		`json:"has_active_hangout"`
+	OtrStatus              string		`json:"otr_status"`
+	OtrToggle              string		`json:"otr_toggle"`
+	CurrentParticipant     []ParticipantID	`json:"current_participant"`
+	ParticipantData        ParticipantData	`json:"participant_data"`
+	ForkOnExternalInvite   bool		`json:"fork_on_external_invite"`
+	NetworkType            []string		`json:"network_type"`
+	ForceHistoryState      string		`json:"force_history_state"`
+	GroupLinkSharingStatus string		`json:"group_link_sharing_status"`
 }
 
 type Formatting struct {
