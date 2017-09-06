@@ -81,8 +81,37 @@ type Segment []struct {
 	Formatting		`json:"formatting"`
 }
 
+type Thumbnail struct {
+	URL      	string		`json:"url"`
+	ImageURL 	string		`json:"image_url"`
+	WidthPx  	int			`json:"width_px"`
+	HeightPx 	int			`json:"height_px"`
+}
+type EmbedsPlusPhotoPlusPhoto struct {
+	Thumbnail 			Thumbnail 	`json:"thumbnail"`
+	OwnerObfuscatedID	string   	`json:"owner_obfuscated_id"`
+	AlbumID				string   	`json:"album_id"`
+	PhotoID				string   	`json:"photo_id"`
+	URL					string   	`json:"url"`
+	OriginalContentURL	string   	`json:"original_content_url"`
+	MediaType			string   	`json:"media_type"`
+	StreamID			[]string 	`json:"stream_id"`
+} 
+
+type EmbedItem struct {
+	Type                     []string `json:"type"`
+	ID                       string   `json:"id"`
+	EmbedsPlusPhotoPlusPhoto EmbedsPlusPhotoPlusPhoto `json:"embeds.PlusPhoto.plus_photo"`	
+} 
+
+type Attachment []struct {
+    EmbedItem 		EmbedItem 		`json:"embed_item"`	
+	ID 				string 			`json:"id"`
+}
+
 type MessageContent struct {
-	Segment		Segment	`json:"segment"`
+	Segment			Segment			`json:"segment,omitempty"`
+	Attachment  	Attachment 		`json:"attachment,omitempty"`
 }
 
 type ChatMessage struct {
