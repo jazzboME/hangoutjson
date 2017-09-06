@@ -98,10 +98,67 @@ type EmbedsPlusPhotoPlusPhoto struct {
 	StreamID			[]string 	`json:"stream_id"`
 } 
 
+type EmbedsPlusAudioV2PlusAudioV2 struct {
+	URL					string		`json:"url"`
+	OwnerObfuscatedID	string		`json:"owner_obfuscated_id"`
+	AlbumID				string   	`json:"album_id"`
+	PhotoID				string   	`json:"photo_id"`
+	EmbedURL			string		`json:"embed_url"`
+	Duration			string		`json:"duration"`
+	MediaKey			string		`json:"media_key"`		
+}
+
+
+type Address struct {
+	EmbedsPostalAddressV2PostalAddressV2 struct {
+		StreetAddress string `json:"street_address"`
+	} `json:"embeds.PostalAddressV2.postal_address_v2"`
+}
+
+type Geo struct {
+	EmbedsGeoCoordinatesV2GeoCoordinatesV2 struct {
+		Latitude  float64 `json:"latitude"`
+		Longitude float64 `json:"longitude"`
+	} `json:"embeds.GeoCoordinatesV2.geo_coordinates_v2"`
+}
+
+type RepresentativeImage struct {
+	Type                             []string `json:"type"`
+	ID                               string   `json:"id"`
+	EmbedsImageObjectV2ImageObjectV2 struct {
+		URL string `json:"url"`
+	} `json:"embeds.ImageObjectV2.image_object_v2"`
+}
+
+type EmbedsPlaceV2PlaceV2 struct {
+	URL     				string 					`json:"url"`
+	Name    				string 					`json:"name"`
+	Address 				Address  				`json:"address"`
+	Geo  					Geo						`json:"geo"`
+	RepresentativeImage 	RepresentativeImage		`json:"representative_image"`
+}
+
+type RepresentativeImage struct {
+	Type                             []string `json:"type"`
+	ID                               string   `json:"id"`
+	EmbedsImageObjectV2ImageObjectV2 struct {
+		URL string `json:"url"`
+	} `json:"embeds.ImageObjectV2.image_object_v2"`
+}
+
+type EmbedsThingV2ThingV2 struct {
+	URL                 string `json:"url"`
+	Name                string `json:"name"`
+	RepresentativeImage RepresentativeImage `json:"representative_image"`
+}
+
 type EmbedItem struct {
 	Type                     []string `json:"type"`
 	ID                       string   `json:"id"`
-	EmbedsPlusPhotoPlusPhoto EmbedsPlusPhotoPlusPhoto `json:"embeds.PlusPhoto.plus_photo"`	
+	EmbedsPlusPhotoPlusPhoto EmbedsPlusPhotoPlusPhoto `json:"embeds.PlusPhoto.plus_photo"`
+	EmbedsPlusAudioV2PlusAudioV2 EmbedsPlusAudioV2PlusAudioV2 `json:"embeds.PlusAudioV2.plus_audio_v2"`
+	EmbedsPlaceV2PlaceV2  EmbedsPlaceV2PlaceV2 `json:"embeds.PlaceV2.place_v2"`
+	EmbedsThingV2ThingV2	EmbedsThingV2ThingV2 `json:"embeds.ThingV2.thing_v2"`
 } 
 
 type Attachment []struct {
@@ -110,8 +167,8 @@ type Attachment []struct {
 }
 
 type MessageContent struct {
-	Segment			Segment			`json:"segment,omitempty"`
-	Attachment  	Attachment 		`json:"attachment,omitempty"`
+	Segment			Segment			`json:"segment"`
+	Attachment  	Attachment 		`json:"attachment"`
 }
 
 type ChatMessage struct {
