@@ -138,14 +138,6 @@ type EmbedsPlaceV2PlaceV2 struct {
 	RepresentativeImage 	RepresentativeImage		`json:"representative_image"`
 }
 
-type RepresentativeImage struct {
-	Type                             []string `json:"type"`
-	ID                               string   `json:"id"`
-	EmbedsImageObjectV2ImageObjectV2 struct {
-		URL string `json:"url"`
-	} `json:"embeds.ImageObjectV2.image_object_v2"`
-}
-
 type EmbedsThingV2ThingV2 struct {
 	URL                 string `json:"url"`
 	Name                string `json:"name"`
